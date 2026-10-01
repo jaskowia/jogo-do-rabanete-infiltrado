@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ARM WARS 2D</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <header class="topbar">
+
+        <div class="logo">
+            💪
+        </div>
+
+        <div class="logo-text">
+            <h1>ARM WARS</h1>
+            <span>QUEDA DE BRAÇO 2D</span>
+        </div>
+
+        <div class="round-info">
+            <span>RODADA</span>
+            <strong id="roundNumber">1</strong>
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <section id="menuScreen" class="screen">
+
+            <div class="hero">
+
+                <div class="hero-icon">
+                    💪
+                </div>
+
+                <h2>
+                    ARM WARS
+                </h2>
+
+                <p>
+                    A batalha de força começa agora.
+                </p>
+
+            </div>
+
+            <div class="selection-grid">
+
+                <div class="selection-card">
+
+                    <h3>
+                        ⚔ MODALIDADE
+                    </h3>
+
+                    <div
+                        id="modeOptions"
+                        class="options">
+                    </div>
+
+                </div>
+
+                <div class="selection-card">
+
+                    <h3>
+                        ⚖ CATEGORIA DE PESO
+                    </h3>
+
+                    <div
+                        id="weightOptions"
+                        class="options">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="controls-info">
+
+                <div class="control-card player1-control">
+
+                    <span class="control-number">
+                        JOGADOR 1
+                    </span>
+
+                    <strong>
+                        F
+                    </strong>
+
+                    <small>
+                        Aperte F rapidamente
+                    </small>
+
+                </div>
+
+                <div class="vs">
+                    VS
+                </div>
+
+                <div class="control-card player2-control">
+
+                    <span class="control-number">
+                        JOGADOR 2
+                    </span>
+
+                    <strong>
+                        J
+                    </strong>
+
+                    <small>
+                        Aperte J rapidamente
+                    </small>
+
+                </div>
+
+            </div>
+
+            <button
+                id="startButton"
+                class="main-button">
+                COMEÇAR LUTA
+            </button>
+
+        </section>
+
+
+        <section
+            id="gameScreen"
+            class="screen hidden">
+
+            <div class="fight-header">
+
+                <div class="fighter-name fighter-one">
+
+                    <span>
+                        JOGADOR 1
+                    </span>
+
+                    <strong id="player1Name">
+                        TITÃ
+                    </strong>
+
+                </div>
+
+                <div class="fight-center">
+
+                    <div id="timer">
+                        10
+                    </div>
+
+                    <span id="modeDisplay">
+                        CLASSIC
+                    </span>
+
+                </div>
+
+                <div class="fighter-name fighter-two">
+
+                    <span>
+                        JOGADOR 2
+                    </span>
+
+                    <strong id="player2Name">
+                        GLADIADOR
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="arena">
+
+                <div class="arena-lights"></div>
+
+                <div class="fighter fighter-left">
+
+                    <div class="fighter-head">
+                        😠
+                    </div>
+
+                    <div class="fighter-body">
+                        <div class="shirt blue-shirt"></div>
+                    </div>
+
+                    <div
+                        id="armLeft"
+                        class="arm arm-left">
+
+                        <div class="hand">
+                            ✊
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table">
+
+                    <div class="table-top"></div>
+
+                    <div class="table-leg left-leg"></div>
+
+                    <div class="table-leg right-leg"></div>
+
+                    <div class="elbow-pad left-pad"></div>
+
+                    <div class="elbow-pad right-pad"></div>
+
+                    <div class="center-mark"></div>
+
+                </div>
+
+
+                <div class="fighter fighter-right">
+
+                    <div class="fighter-head">
+                        😤
+                    </div>
+
+                    <div class="fighter-body">
+                        <div class="shirt red-shirt"></div>
+                    </div>
+
+                    <div
+                        id="armRight"
+                        class="arm arm-right">
+
+                        <div class="hand">
+                            ✊
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="power-area">
+
+                <div class="power-player">
+
+                    <div class="power-title">
+
+                        <span>
+                            JOGADOR 1
+                        </span>
+
+                        <strong id="clicks1">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="power-bar">
+
+                        <div
+                            id="power1"
+                            class="power-fill blue-fill">
+                        </div>
+
+                    </div>
+
+                    <div class="key-display">
+                        F
+                    </div>
+
+                </div>
+
+
+                <div class="fight-status">
+
+                    <strong id="fightMessage">
+                        PREPARE-SE!
+                    </strong>
+
+                    <span>
+                        CLIQUE O MAIS RÁPIDO POSSÍVEL
+                    </span>
+
+                </div>
+
+
+                <div class="power-player">
+
+                    <div class="power-title">
+
+                        <span>
+                            JOGADOR 2
+                        </span>
+
+                        <strong id="clicks2">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="power-bar">
+
+                        <div
+                            id="power2"
+                            class="power-fill red-fill">
+                        </div>
+
+                    </div>
+
+                    <div class="key-display">
+                        J
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="instructions">
+
+                <span>
+                    F = JOGADOR 1
+                </span>
+
+                <span>
+                    ⚡ CLIQUE RÁPIDO
+                </span>
+
+                <span>
+                    J = JOGADOR 2
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="resultScreen"
+            class="screen result-screen hidden">
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <span>
+                VENCEDOR
+            </span>
+
+            <h2 id="winnerName">
+                JOGADOR 1
+            </h2>
+
+            <p id="winnerDescription">
+                Derrubou o braço adversário!
+            </p>
+
+            <div class="result-stats">
+
+                <div>
+                    <span>
+                        JOGADOR 1
+                    </span>
+
+                    <strong id="finalClicks1">
+                        0
+                    </strong>
+
+                    <small>
+                        CLIQUES
+                    </small>
+                </div>
+
+                <div>
+                    <span>
+                        JOGADOR 2
+                    </span>
+
+                    <strong id="finalClicks2">
+                        0
+                    </strong>
+
+                    <small>
+                        CLIQUES
+                    </small>
+                </div>
+
+            </div>
+
+            <button
+                id="againButton"
+                class="main-button">
+                NOVA LUTA
+            </button>
+
+            <button
+                id="menuButton"
+                class="secondary-button">
+                VOLTAR AO MENU
+            </button>
+
+        </section>
+
+
+        <section class="info-section">
+
+            <h2>
+                COMO JOGAR
+            </h2>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <div>
+                        01
+                    </div>
+
+                    <h3>
+                        ESCOLHA A MODALIDADE
+                    </h3>
+
+                    <p>
+                        Escolha entre diferentes estilos
+                        de queda de braço.
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <div>
+                        02
+                    </div>
+
+                    <h3>
+                        ESCOLHA O PESO
+                    </h3>
+
+                    <p>
+                        Cada categoria possui características
+                        diferentes de força e velocidade.
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <div>
+                        03
+                    </div>
+
+                    <h3>
+                        APERTE SUA TECLA
+                    </h3>
+
+                    <p>
+                        Jogador 1 usa F e Jogador 2 usa J.
+                        Aperte rapidamente.
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <div>
+                        04
+                    </div>
+
+                    <h3>
+                        DERRUBE O BRAÇO
+                    </h3>
+
+                    <p>
+                        Quem conseguir empurrar o braço
+                        adversário para baixo vence.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <strong>
+            💪 ARM WARS 2D
+        </strong>
+
+        <p>
+            Jogo desenvolvido com HTML, CSS e JavaScript.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
